@@ -3,6 +3,8 @@ import streamlit as st
 import pandas as pd
 import requests
 
+MODEL = "deepseek/deepseek-chat-v3-0324:free"
+
 st.set_page_config(layout="wide")
 st.title("🚗 Bil data analysator og chatbot")
 
@@ -166,7 +168,7 @@ if st.button("🔍 Start AI Analysis with Current Data", disabled=not st.session
         with st.spinner("AI utfører innledende analyse ... dette kan ta litt tid..."):
             try:
                 completion = client.chat.completions.create(
-                    model="deepseek/deepseek-chat-v3-0324:free",
+                    model=MODEL,
                     messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
                 )
                 ai_response_content = completion.choices[0].message.content
@@ -199,7 +201,7 @@ if st.session_state.initial_analysis_done: # Only allow chat if initial analysis
         with st.spinner("AI is thinking..."):
             try:
                 completion = client.chat.completions.create(
-                    model="deepseek/deepseek-chat-v3-0324:free",
+                    model=MODEL,
                     messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
                 )
                 ai_response_content = completion.choices[0].message.content
