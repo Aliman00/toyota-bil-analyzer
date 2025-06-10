@@ -14,7 +14,8 @@ client = OpenAI(
     api_key=os.getenv("OPENROUTER_API_KEY")
 )
 
-finn_url = "https://www.finn.no/mobility/search/car?fuel=6&fuel=1352&location=20061&location=20007&location=20003&location=20002&model=1.813.3074&model=1.813.2000660&price_to=350000&registration_class=1&sales_form=1&sort=MILEAGE_ASC&stored-id=80223608&wheel_drive=2&year_from=2019"
+#finn_url = "https://www.finn.no/mobility/search/car?fuel=6&fuel=1352&location=20061&location=20007&location=20003&location=20002&model=1.813.3074&model=1.813.2000660&price_to=350000&registration_class=1&sales_form=1&sort=MILEAGE_ASC&stored-id=80223608&wheel_drive=2&year_from=2019"
+finn_url = "https://www.finn.no/mobility/search/car?location=20007&location=20061&location=20003&location=20002&model=1.813.3074&model=1.813.2000660&price_to=380000&sales_form=1&sort=MILEAGE_ASC&stored-id=80260642&wheel_drive=2&year_from=2019"
 
 def fetch_car_data(url_to_fetch: str) -> str | None:
     """Fetches the raw HTML content from the given URL."""
